@@ -32,57 +32,125 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
         onSubmit={handleSubmit(onSubmit)}
         className="bg-white rounded-lg shadow-lg max-w-xl w-full max-h-[90vh] overflow-y-auto p-8"
       >
+        <button
+          type="button"
+          onClick={onClose}
+          className="
+            inline-flex items-center p-2  ms-2 text-sm text-red-400 bg-transparent rounded-xs hover:bg-red-200 hover:text-red-900 dark:hover:bg-red-800 dark:hover:text-red-300"
+          data-dismiss-target="#badge-dismiss-red"
+        >
+          <svg
+            className="w-4 h-4"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 14 14"
+          >
+            <path
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+            />
+          </svg>
+        </button>
+
         <h1 className="text-3xl font-bold mb-6 text-center text-gray-900">
           Add User
         </h1>
 
         <div className="grid gap-5">
-          <FormField
-            type="text"
-            placeholder="Full Name"
-            name="fullName"
-            register={register}
-            error={errors.fullName}
-          />
-          <FormField
-            type="email"
-            placeholder="Email"
-            name="email"
-            register={register}
-            error={errors.email}
-          />
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              type="text"
+              {...register("fullName")}
+              placeholder=" "
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+            />
+            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Full Name
+            </label>
+            {errors.fullName && (
+              <p className="text-red-600 text-sm">{errors.fullName.message}</p>
+            )}
+          </div>
 
-          <FormField
-            type="password"
-            placeholder="Password"
-            name="password"
-            register={register}
-            error={errors.password}
-          />
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              type="email"
+              {...register("email")}
+              placeholder=" "
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+            />
+            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Email
+            </label>
+            {errors.email && (
+              <p className="text-red-600 text-sm">{errors.email.message}</p>
+            )}
+          </div>
 
-          <FormField
-            type="tel"
-            placeholder="+1 123-456-7890"
-            name="phone"
-            register={register}
-            error={errors.phone}
-          />
+          {/* Password */}
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              type="password"
+              {...register("password")}
+              placeholder=" "
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+            />
+            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Password
+            </label>
+            {errors.password && (
+              <p className="text-red-600 text-sm">{errors.password.message}</p>
+            )}
+          </div>
 
-          <FormField
-            type="url"
-            placeholder="https://example.com"
-            name="website"
-            register={register}
-            error={errors.website}
-          />
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              type="tel"
+              {...register("phone")}
+              placeholder=" "
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+            />
+            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Phone
+            </label>
+            {errors.phone && (
+              <p className="text-red-600 text-sm">{errors.phone.message}</p>
+            )}
+          </div>
 
-          <FormField
-            type="date"
-            placeholder=""
-            name="birthDate"
-            register={register}
-            error={errors.birthDate}
-          />
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              type="url"
+              {...register("website")}
+              placeholder=" "
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+            />
+            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Website
+            </label>
+            {errors.website && (
+              <p className="text-red-600 text-sm">{errors.website.message}</p>
+            )}
+          </div>
+
+          <div className="relative z-0 w-full mb-5 group">
+            <input
+              type="date"
+              {...register("birthDate")}
+              placeholder=" "
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+            />
+            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+              Birth Date
+            </label>
+            {errors.birthDate && (
+              <p className="text-red-600 text-sm">{errors.birthDate.message}</p>
+            )}
+          </div>
 
           <label className="block font-semibold text-gray-700">
             Experience: {watch("experience")} years
@@ -93,7 +161,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
             max="20"
             step="0.5"
             {...register("experience", { valueAsNumber: true })}
-            className="w-full accent-blue-600"
+            className="w-full accent-gray-600"
           />
           {errors.experience && (
             <span className="text-red-600 text-sm">
@@ -115,7 +183,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
                     type="checkbox"
                     value={skill}
                     {...register("skills")}
-                    className="accent-blue-600"
+                    className="accent-gray-600"
                   />
                   <span className="text-gray-800">{skill}</span>
                 </label>
@@ -142,7 +210,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
                   value={plan}
                   {...register("subscription")}
                   defaultChecked={plan === "Free"}
-                  className="accent-blue-600"
+                  className="accent-gray-600"
                 />
                 <span className="ml-2 text-gray-800">{plan}</span>
               </label>
@@ -150,18 +218,27 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
           </div>
 
           {(subscription === "Pro" || subscription === "Enterprise") && (
-            <FormField
-              type="text"
-              placeholder="Company Size"
-              name="companySize"
-              register={register}
-              error={errors.companySize}
-            />
+            <div className="relative z-0 w-full mb-5 group">
+              <input
+                type="text"
+                {...register("companySize")}
+                placeholder=" "
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+              />
+              <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+                Company Size
+              </label>
+              {errors.companySize && (
+                <p className="text-red-600 text-sm">
+                  {errors.companySize.message}
+                </p>
+              )}
+            </div>
           )}
 
           <select
             {...register("country")}
-            className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-gray-500"
             defaultValue=""
           >
             <option value="" disabled>
@@ -181,14 +258,14 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
 
           <button
             type="submit"
-            className="mt-6 w-full bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold py-3 rounded"
+            className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800"
           >
             Submit
           </button>
           <button
             type="button"
             onClick={onClose}
-            className="mt-6 w-full bg-red-600 hover:bg-red-700 transition-colors text-white font-semibold py-3 rounded"
+            className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900"
           >
             Close
           </button>
