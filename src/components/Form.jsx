@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
 import { formData, UserSchema, skillsOptions } from "../forms/types";
-import FormField from "./FormField";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect } from "react";
 
@@ -27,10 +26,10 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black/50 bg-opacity-40 z-50 p-4">
+    <div className="fixed inset-0 flex items-center justify-center bg-black/40 dark:bg-gray-900/60 z-50 p-4">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-white rounded-lg shadow-lg max-w-xl w-full max-h-[90vh] overflow-y-auto p-8"
+        className="bg-white dark:bg-gray-800 rounded-lg shadow-lg max-w-xl w-full max-h-[90vh] overflow-y-auto p-8"
       >
         <button
           type="button"
@@ -56,7 +55,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
           </svg>
         </button>
 
-        <h1 className="text-3xl font-bold mb-6 text-center text-gray-900">
+        <h1 className="text-3xl dark:text-gray-400 font-bold mb-6 text-center text-gray-900">
           Add User
         </h1>
 
@@ -66,7 +65,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
               type="text"
               {...register("fullName")}
               placeholder=" "
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+              className="block py-2.5 px-0 w-full dark:text-white text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
             />
             <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Full Name
@@ -81,7 +80,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
               type="email"
               {...register("email")}
               placeholder=" "
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 dark:text-white peer"
             />
             <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Email
@@ -91,13 +90,12 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
             )}
           </div>
 
-          {/* Password */}
           <div className="relative z-0 w-full mb-5 group">
             <input
               type="password"
               {...register("password")}
               placeholder=" "
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 dark:text-white peer"
             />
             <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Password
@@ -112,7 +110,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
               type="tel"
               {...register("phone")}
               placeholder=" "
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 dark:text-white peer"
             />
             <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Phone
@@ -127,7 +125,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
               type="url"
               {...register("website")}
               placeholder=" "
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 dark:text-white peer"
             />
             <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Website
@@ -141,10 +139,9 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
             <input
               type="date"
               {...register("birthDate")}
-              placeholder=" "
-              className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+              className="block py-2.5 px-0 w-full text-sm text-gray-900 dark:text-gray-500 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
             />
-            <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
+            <label className="absolute text-sm text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
               Birth Date
             </label>
             {errors.birthDate && (
@@ -152,7 +149,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
             )}
           </div>
 
-          <label className="block font-semibold text-gray-700">
+          <label className="block font-semibold text-gray-700 dark:text-gray-400">
             Experience: {watch("experience")} years
           </label>
           <input
@@ -170,7 +167,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
           )}
 
           <div>
-            <label className="block mb-1 font-semibold text-gray-700">
+            <label className="block mb-1 font-semibold text-gray-700 dark:text-gray-400">
               Skills (Select at least 2):
             </label>
             <div className="flex flex-wrap gap-3">
@@ -183,9 +180,11 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
                     type="checkbox"
                     value={skill}
                     {...register("skills")}
-                    className="accent-gray-600"
+                    className="accent-gray-600 "
                   />
-                  <span className="text-gray-800">{skill}</span>
+                  <span className="text-gray-800 dark:text-gray-400">
+                    {skill}
+                  </span>
                 </label>
               ))}
             </div>
@@ -197,7 +196,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
           </div>
 
           <div>
-            <label className="block mb-1 font-semibold text-gray-700">
+            <label className="block mb-1 font-semibold text-gray-700 dark:text-gray-400">
               Subscription:
             </label>
             {["Free", "Pro", "Enterprise"].map((plan) => (
@@ -212,7 +211,9 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
                   defaultChecked={plan === "Free"}
                   className="accent-gray-600"
                 />
-                <span className="ml-2 text-gray-800">{plan}</span>
+                <span className="ml-2 text-gray-800 dark:text-gray-400">
+                  {plan}
+                </span>
               </label>
             ))}
           </div>
@@ -223,7 +224,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
                 type="text"
                 {...register("companySize")}
                 placeholder=" "
-                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 peer"
+                className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 focus:outline-none focus:ring-0 focus:border-gray-600 dark:text-white peer"
               />
               <label className="absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">
                 Company Size
@@ -238,7 +239,7 @@ const Form = ({ onSubmit, isOpen, onClose }) => {
 
           <select
             {...register("country")}
-            className="border border-gray-300 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-gray-500"
+            className="border border-gray-300 dark:text-gray-400 rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-gray-500"
             defaultValue=""
           >
             <option value="" disabled>
